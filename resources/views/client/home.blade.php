@@ -1,7 +1,7 @@
 @extends('layouts.client')
 
 @section('content')
-<div class="flex justify-center">
+<div class="flex justify-center h-[600px]">
     <div class="mx-12 w-[80%] ">
         <div class="grid sm:grid-cols-1 md:grid-cols-2 h-[500px] gap-4 ">
             <div class="flex flex-col justify-center items-center">
@@ -27,5 +27,22 @@
             </div>
           </div>
     </div>
+</div>
+
+<div class="w-full h-[500px] bg-slate-400 flex justify-center items-center">
+    <div class="w-[1100px] h-[400px] bg-white">
+        <div>
+
+        </div>
+
+        <div>
+            
+        </div>
+
+    </div>
+</div>
+
+<div class="w-full h-[300px] bg-slate-500">
+
 </div>
 @endsection
