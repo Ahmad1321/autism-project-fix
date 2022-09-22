@@ -18,29 +18,26 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
-<div class="container">
-    <div class="h-screen min-h-screen items-center row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
+    
+    <div class="bg-gradient-to-r from-[#6190E8] to-[#A7BFE8] w-full h-screen flex justify-center items-center">
+        <div class="w-[700px] h-[500px] rounded-xl flex flex-col justify-center items-center backdrop-blur-sm bg-white/30">
+            <h3 class="text-3xl font-bold text-slate-800 pt-5 pb-5">Login</h3>
+            <div>
+                <div class="border-2 p-7 bg-transparent border-slate-800 rounded-xl">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                        <div class="mb-3">
+                            <label for="email" class="text-lg font-semibold">Email</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+                            <div class="flex flex-col">   
+                                <input id="email" type="email" class="w-[300px]  rounded p-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-red-500 font-thin text-xs" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -48,13 +45,13 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="password" class="text-lg font-semibold">Password</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <div class="flex flex-col">
+                                <input id="password" type="password" class="w-[300px] rounded p-2 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-red-500 font-thin text-xs" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -67,27 +64,29 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        Remember Me
                                     </label>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                        <div class="flex flex-col items-center">
+                            <div class="px-6 py-1 bg-slate-700 hover:bg-slate-800 rounded-full">
+                                <button type="submit" class="font-semibold text-slate-50 hover:font-semibold text-lg">
+                                    Login
                                 </button>
+                            </div>
+                            <div class="text-xs mt-3">
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                    <a class="text-black " href="{{ route('password.request') }}">
+                                        Forgot your password ?
                                     </a>
                                 @endif
 
                                 @if (Route::has('register'))
-                                    <a class="btn btn-link" href="{{ route('register') }}">
-                                        {{ __('Register') }}
+                                    <a class="text-blue-900 hover:font-bold" href="{{ route('register') }}">
+                                        Register
                                     </a>
                                 @endif
                             </div>
@@ -97,7 +96,7 @@
             </div>
         </div>
     </div>
-</div>
+    
 </body>
 <script>
     const btn = document.querySelector("button.mobile-menu-button");

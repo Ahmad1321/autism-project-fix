@@ -8,7 +8,7 @@
                 <div class="card-header">Hasil Survei</div>
 
                 <div class="card-body">
-                    <h1>{{$result->username}}</h1>
+                    <h1>{{$result->user->nama_lengkap}}</h1>
                     <p class="mt-3">Total skor: {{ $result->total_points }}</p>
                     <table class="table table-bordered">
                         <thead>

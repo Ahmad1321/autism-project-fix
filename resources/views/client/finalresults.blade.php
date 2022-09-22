@@ -13,6 +13,12 @@
                           <div class="div border-[1px] mb-2 px-4 py-2 rounded border-slate-500 flex justify-between">
                             <p>{{ $survei[$i]->name }}</p>
                             <p>{{ $results[$i]->total_points }}</p>
+                            <p>{{ $results[$i]->jenis_survei }}</p>
+                            <div class="btn-group btn-group-sm">
+                              <a href="{{ route('client.results.show', $results[$i]->id) }}" class="btn btn-success">
+                                <i class="fa fa-eye">Detail</i>
+                              </a>
+                            </div>
                           </div>
                         @endfor
 
@@ -25,10 +31,19 @@
                         </div> -->
                 </div>
 
+                <div class="card-body">
+                  <div class="div border-[1px] mb-2 px-4 py-2 rounded border-slate-500 flex flex-col items-center justify-center">
+                    <h1 class="text-3xl">Kesimpulan</h1>
+                    <h1 class="text-xl">{{$hasilscore}}</h1>
+                    
+                    <p class="text-xl">Hasil penilaian menunjukan bahwa Sdr.... dideteksi memiliki level autis yang : {{$hasilakhir}}</p>
+                  </div>
+                </div>
+
                 <form action="/submit-rekomendasi/{{ $results[0]->user_id }}" method="POST" class="rekomendasi mt-4">
                   @csrf
-                  <label for="rekomendasi" class="font-semibold">Rekomendasi</label>
-                  <textarea name="rekomendasi" id="rekomendasi" rows="5" class="border-[1px] border-slate-500 w-full p-2"></textarea>
+                  <label for="rekomendasi" class="font-semibold">Kesimpulan dan Rekomendasi </label>
+                  <textarea placeholder="isi rekomendasi" name="rekomendasi" id="rekomendasi" rows="5" class="border-[1px] border-slate-500 w-full p-2"></textarea>
 
                   <div class="btn-action flex justify-center">
                     <a href="/pilihan/{{ $results[0]->user_id }}" class="bg-red-500 px-4 py-2 rounded text-white mr-4">Back</a>

@@ -30,6 +30,7 @@
 
                                 </th>
                                 <th>No</th>
+                                <th>Kategori</th>
                                 <th>Pertanyaan</th>
                                 <th>Opsi Pertanyaan</th>
                                 <th>Poin</th>
@@ -43,6 +44,7 @@
 
                                 </td>
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{ $option->$question->category->name }}</td>
                                 <td>{{ $option->question->question_text }}</td>
                                 <td>{{ $option->option_text}}</td>
                                 <td>{{ $option->points}}</td>

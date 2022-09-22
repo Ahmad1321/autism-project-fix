@@ -27,6 +27,7 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('')}}" type="image/x-icon">
 
 </head>
 

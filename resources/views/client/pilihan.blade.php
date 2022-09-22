@@ -1,5 +1,7 @@
 @extends('layouts.client')
 @section('content')
+<script src="https://cdn.tailwindcss.com"></script>
+
 
 <div class="flex justify-center items-center">
     <div class="w-[900px] h-[500px]">
@@ -70,11 +72,9 @@
         </div>
         <div class="btn-action flex justify-between">
           <div class="text-lg mt-3 flex justify-start rounden-md">
-              <a href="{{ url('/home') }}">
-                  <button class="py-2 px-4 bg-[#FF0000] hover:font-bold rounded-sm transition text-white shadow-xl font-medium" >
-                      Kembali
-                  </button>
-              </a>
+              <button class="show-modal py-2 px-4 bg-[#FF0000] hover:font-bold rounded-sm transition text-white shadow-xl font-medium" >
+                  Keluar
+                </button>
           </div>
           <div class="text-lg mt-3 flex justify-start rounden-md <?php if($finish == false) echo "hidden" ?>">
               <a href="/finalresults/{{ $id }}">
@@ -82,8 +82,38 @@
                       Lihat Hasil
                   </button>
               </a>
-          </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white rounded shadow-lg w-1/3">
+            <div class="border-b px-4 py-2 flex justify-between items-center">
+                <h3 class="font-semibold text-lg">Penting!!!</h3>
+            </div>
+            <div class="p-3">
+                Apakah anda yakin keluar? ketika anda keluar semua data yang sudah di isi akan hilang
+            </div>
+            <div class="flex justify-end items-center w-100 border-t p-3">
+                <button class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white mr-1 close-modal">Cancel</button>
+                <a href="{{ url('/home') }}">
+                    <button class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-white mr-1">Oke</button>
+                </a>
+            </div>
         </div>
     </div>
 </div>
+    <script>
+        const modal = document.querySelector('.modal');
+        
+        const showModal = document.querySelector('.show-modal');
+        const closeModal = document.querySelector('.close-modal');
+    
+        showModal.addEventListener('click', function(){
+            modal.classList.remove('hidden')
+        });
+        
+        closeModal.addEventListener('click', function(){
+            modal.classList.add('hidden')
+        });
+    </script>
 @endsection

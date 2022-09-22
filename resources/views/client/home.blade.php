@@ -1,7 +1,6 @@
 @extends('layouts.client')
 
 @section('content')
-<script src="https://cdn.tailwindcss.com"></script>
 <div class="flex justify-center">
     <div class="mx-12 w-[80%] ">
         <div class="grid sm:grid-cols-1 md:grid-cols-2 h-[500px] gap-4 ">

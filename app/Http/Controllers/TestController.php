@@ -83,16 +83,16 @@ class TestController extends Controller
           'jenis_survei' => $survei,
         ]);
 
-        // $questions = $options->mapWithKeys(function ($option) {
-        //     return [
-        //         $option->question_id => [
-        //             'option_id' => $option->id,
-        //             'points' => $option->points
-        //         ]
-        //     ];
-        // })->toArray();
+        $questions = $options->mapWithKeys(function ($option) {
+            return [
+                $option->question_id => [
+                    'option_id' => $option->id,
+                    'points' => $option->points
+                ]
+            ];
+        })->toArray();
 
-        // $result->questions()->sync($questions);
+        $result->questions()->sync($questions);
 
         return redirect("pilihan/$id");
     }
@@ -129,8 +129,17 @@ class TestController extends Controller
 
     public function showResult($id){
       $results = Result::where('user_id', '=', $id)->get();
+      $total_results = $results->sum('total_points');
+      $hasil_total_results = "";
+        if ($total_results >= 30 && $total_results <= 60) {
+            $hasil_total_results = "Ringan";
+        } else if ($total_results > 60) {
+            $hasil_total_results = "Berat";
+        } else {
+            $hasil_total_results = "Sedang";
+        }
       $survei = Category::find($id)->get();
       // var_dump($survei);
-      return view('client.finalresults')->with('results', $results)->with('survei', $survei);
+      return view('client.finalresults')->with('results', $results)->with('survei', $survei)->with('hasilakhir', $hasil_total_results)->with('hasilscore', $total_results);
     }
 }
