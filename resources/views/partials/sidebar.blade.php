@@ -2,25 +2,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
-                <div class="sidebar-brand-text mx-4">
-                    <img src="{{URL::asset('/image/logo.png')}}" href="{{ route('client.test') }}"
-                                class="w-[70px]"
-                            >
+                <div class="sidebar-brand-text mx-4 py-2 px-4 bg-red-400 text-slate-800 rounded-xl">
+                    Kembali
                 </div>
             </a>
-
-            <!-- Divider -->
-            {{-- <hr class="sidebar-divider my-0"> --}}
-
-            <!-- Nav Item - Dashboard -->
-            {{-- <li class="nav-item {{ request()->is('admin/dashboard') || request()->is('admin/dashboard') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.dashboard.index') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>{{ __('Dashboard') }}</span></a>
-            </li> --}}
-
-            <!-- Divider -->
-            {{-- <hr class="sidebar-divider"> --}}
 
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">

@@ -29,13 +29,11 @@
         <div class=" bg-white">
             <nav class="drop-shadow-xl border-b-[1px] border-slate-400">
                 <div class="flex flex-row justify-between items-center bg-transparent">
-                    <div class="px-4 py-2">
                         <a href="{{ url('/home') }}">
-                            <img src="{{URL::asset('/image/logo-baru.jpg')}}" href="{{ route('client.test') }}"
-                                class="w-[70px]"
+                            <img src="{{URL::asset('/image/logo-baru.png')}}" href="{{ route('client.test') }}"
+                                class="w-[70px] mr-5"
                             >
                         </a>
-                    </div>
                     <div class="flex flex-row mr-3">
                         <a class="text-lg py-2 px-4 text-slate-800" href="{{ url('/home') }}">
                             HOME
@@ -44,7 +42,7 @@
                             MANUAL
                         </a>
                         <a class="text-lg py-2 px-4 text-slate-800" href="{{ route('admin.results.index') }}">
-                            SET SCORE
+                            DASBOARD
                         </a>
                         
                     </div>

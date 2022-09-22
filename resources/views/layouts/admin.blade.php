@@ -54,6 +54,15 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+                    <div class="w-full border-b py-[7px]">
+                      <div class="flex justify-center items-center">
+                          <div class="flex flex-row gap-3 py-1 px-3 bg-white rounded-full">
+                              <img src="{{URL::asset('/image/logo-perusahaan-autis.png')}}" class="w-[40px]" alt="">
+                              <img src="{{URL::asset('/image/upi.png')}}" class="w-[40px]" alt="">
+                          </div>
+                      </div>
+                  </div>
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">

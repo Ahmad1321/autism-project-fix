@@ -23,8 +23,12 @@
 
 <body>
     
-    <div class="bg-gradient-to-r from-[#6190E8] to-[#A7BFE8] w-full h-screen flex justify-center items-center">
+    <div class="bg-gradient-to-r from-[#6190E8] to-[#d8e2f2] w-full h-screen flex justify-center items-center">
         <div class="w-[700px] h-[500px] rounded-xl flex flex-col justify-center items-center backdrop-blur-sm bg-white/30">
+            <div class="flex flex-row gap-3 py-1 px-3 bg-slate-100 shadow-xl rounded-full">
+                <img src="{{URL::asset('/image/logo-perusahaan-autis.png')}}" class="w-[40px]" alt="">
+                <img src="{{URL::asset('/image/upi.png')}}" class="w-[40px]" alt="">
+            </div>
             <h3 class="text-3xl font-bold text-slate-800 pt-5 pb-5">Login</h3>
             <div>
                 <div class="border-2 p-7 bg-transparent border-slate-800 rounded-xl">
@@ -64,7 +68,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        Remember Me
+                                        Ingat kan saya
                                     </label>
                                 </div>
                             </div>
@@ -77,16 +81,15 @@
                                 </button>
                             </div>
                             <div class="text-xs mt-3">
-
                                 @if (Route::has('password.request'))
                                     <a class="text-black " href="{{ route('password.request') }}">
-                                        Forgot your password ?
+                                        Lupa Password ?
                                     </a>
                                 @endif
 
                                 @if (Route::has('register'))
                                     <a class="text-blue-900 hover:font-bold" href="{{ route('register') }}">
-                                        Register
+                                        Daftar
                                     </a>
                                 @endif
                             </div>

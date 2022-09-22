@@ -140,7 +140,10 @@ class TestController extends Controller
         } else {
             $hasil_total_results = "Sedang";
         }
-      $survei = Category::find($id)->get();
+        
+    $nama_kategori = 
+    // error
+      $survei = Category::all();
       // var_dump($survei);
       return view('client.finalresults')->with('results', $results)->with('survei', $survei)->with('hasilakhir', $hasil_total_results)->with('hasilscore', $total_results);
     }

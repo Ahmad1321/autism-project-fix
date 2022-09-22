@@ -22,8 +22,12 @@
 </head>
 
 <body>
-    <div class="w-full h-screen flex flex-col justify-center items-center">
-        <div class="w-[700px] h-[500px]rounded-xl flex flex-col justify-center items-center">
+    <div class="bg-gradient-to-r from-[#6190E8] to-[#d8e2f2] w-full h-screen flex flex-col justify-center items-center">
+        <div class="w-[700px] h-[500px]rounded-xl flex flex-col justify-center items-center backdrop-blur-sm bg-white/30 p-10 rounded-xl">
+            <div class="flex flex-row gap-3 py-1 px-3 bg-slate-100 shadow-xl rounded-full">
+                <img src="{{URL::asset('/image/logo-perusahaan-autis.png')}}" class="w-[40px]" alt="">
+                <img src="{{URL::asset('/image/upi.png')}}" class="w-[40px]" alt="">
+            </div>
             <div class="text-3xl font-bold text-slate-800 pt-5 pb-5">Register</div>
             <div class="border-2 p-7 bg-slate-300 border-slate-800 rounded-xl">
                 <form method="POST" action="{{ route('register') }}">
@@ -79,6 +83,10 @@
                                 Register
                             </button>
                         </div>
+                    </div>
+                    <div class="text-xs mt-3 flex justify-center items-center">
+                        <p>Punya akun? <a class="text-blue-900 hover:font-bold" href="{{ route('login') }}">Login disini</a></p>
+                        
                     </div>
                 </form>
             </div>
