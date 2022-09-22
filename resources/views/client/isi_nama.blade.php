@@ -25,13 +25,13 @@
 
                         <div class="flex justify-center">
                             <div class="form-check mr-4">
-                                <input class="form-check-input" type="radio" name="gender" id="lakilaki" value="Laki-laki" >
+                                <input class="form-check-input" type="radio" name="gender" id="lakilaki" value="Laki-laki" required>
                                 <label class="form-check-label" for="lakilaki">
                                     Laki Laki
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" id="perempuan" value="Perempuan" >
+                                <input class="form-check-input" type="radio" name="gender" id="perempuan" value="Perempuan" required>
                                 <label class="form-check-label" for="perempuan">
                                     Perempuan
                                 </label>

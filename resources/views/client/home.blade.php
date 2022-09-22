@@ -30,19 +30,18 @@
 </div>
 
 <div class="w-full h-[500px] bg-slate-400 flex justify-center items-center">
-    <div class="w-[1100px] h-[400px] bg-white">
-        <div>
-
+    <div class="w-[1100px] h-[400px] bg-white flex flex-row justify-center items-center gap-4">
+        <div class="w-[500px] h-[350px] flex justify-center items-center border-2 border-black">
+            <div>left content</div>
         </div>
-
-        <div>
-            
+        <div class="w-[500px] h-[350px] flex justify-center items-center border-2 border-black">
+            <div>right content</div>
         </div>
 
     </div>
 </div>
 
-<div class="w-full h-[300px] bg-slate-500">
-
+<div class="w-full h-[300px] bg-slate-50 flex justify-center items-center">
+    for third section
 </div>
 @endsection

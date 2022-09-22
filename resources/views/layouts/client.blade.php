@@ -31,7 +31,7 @@
                 <div class="flex flex-row justify-between items-center bg-transparent">
                     <div class="px-4 py-2">
                         <a href="{{ url('/home') }}">
-                            <img src="{{URL::asset('/image/logo.png')}}" href="{{ route('client.test') }}"
+                            <img src="{{URL::asset('/image/logo-baru.jpg')}}" href="{{ route('client.test') }}"
                                 class="w-[70px]"
                             >
                         </a>
