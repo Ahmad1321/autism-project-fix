@@ -32,6 +32,7 @@
                               </th>
                               <td class="py-4 px-6">
                                 <p>{{ $results[$i]->total_points }}</p>
+                                
                               </td>
                               <td class="py-4 px-6">
                                 <a href="{{ route('client.results.show', $results[$i]->id) }}" class="py-2 px-4 bg-blue-500 rounded-lg text-white ">
@@ -49,7 +50,7 @@
                     <h1 class="text-2xl uppercase mt-5 py-2 px-4 bg-blue-500 rounded-xl text-zinc-900 font-semibold mb-5">Kesimpulan</h1>
                     <div class="text-zinc-900  rounded-xl mb-5 w-[700px] h-[170px] bg-slate-50 flex justify-center items-center flex-col">
                       <h1 class="text-3xl py-2 px-4 bg-green-600 text-slate-100 rounded-xl shadow-xl mb-3 font-bold">{{$hasilscore}}</h1>
-                      <p class="text-xl mb-5 w-[500px]">Hasil penilaian menunjukan bahwa Sdr.... dideteksi memiliki level autis yang : {{$hasilakhir}}</p>
+                      <p class="text-xl mb-5 w-[500px]">Hasil penilaian menunjukan bahwa Sdr {{ $user_data[$results[1]->user_id-1]->nama_lengkap }} dideteksi memiliki level autis yang : {{$hasilakhir}}</p>
                     </div>
                   </div>
                 </div>

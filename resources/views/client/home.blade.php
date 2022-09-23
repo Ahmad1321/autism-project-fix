@@ -38,7 +38,7 @@
     <div class="w-[1100px] h-[400px] flex flex-col sm:flex-row justify-center items-center gap-4  backdrop-greyscale-125 bg-white/30 rounded-xl mb-4">
         <div class="w-[600px] h-[800px] sm:h-[290px] flex justify-center items-start">
             <div class="w-[500px]">
-                <a href="https://www.youtube.com/watch?v=pDO19S77Hz4"><img src="{{URL::asset('/image/cover-video.png')}}" class="w-[900px] rounded-md"></a>
+                <a href="https://drive.google.com/file/d/1ElGN3FVfNPJL5unNuXedXIV7jENtPrXc/view?usp=drivesdk" target="_blank"><img src="{{URL::asset('/image/cover-video.png')}}" class="w-[900px] rounded-md"></a>
             </div>
         </div>
         <div class="w-[400px] h-[290px]  px-7">
@@ -49,12 +49,12 @@
                     <span class="font-bold text-slate-900">FUNREADO</span> merupakan aplikasi berbasis Augmented Reality sebagai platform pembelajaran yang dipersonalisasi sesuai dengan kemampuan siswa, serta dilengkapi dengan buku sebagai pemandu pembelajaran
                 </p>
                 <div class="flex flex-row gap-4">
-                    <a href="https://www.youtube.com/watch?v=pDO19S77Hz4">
+                    <a href="https://drive.google.com/file/d/1ElGN3FVfNPJL5unNuXedXIV7jENtPrXc/view?usp=drivesdk" target="_blank">
                         <button class="px-4 py-2 rounded-xl bg-red-700 shadow-xl hover:bg-red-200 hover:text-red-700 transition text-white font-medium my-4">
                             Lihat Video
                         </button>
                     </a>
-                    <a href="https://www.youtube.com/watch?v=pDO19S77Hz4">
+                    <a href="https://flipbookpdf.net/web/site/0c53bc851d06a5d1167cacae866d33dbcaa13014202209.pdf.html" target="_blank">
                         <button class="px-4 py-2 rounded-xl bg-green-700 shadow-xl hover:bg-green-200 hover:text-green-700 text-white transition font-medium my-4">
                             E-Book
                         </button>

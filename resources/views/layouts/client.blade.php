@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>SIPETIS | Home</title>
+    <title>SIPETIS</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -16,7 +16,7 @@
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="icon" href="{{ asset('')}}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('/image/logo-baru.png')}}" type="image/x-icon">
 </head>
 
 <body>
@@ -44,7 +44,7 @@
                 </a>
               </li>
               <li class="mx-4 my-6 md:my-0">
-                <a class="text-lg py-2 px-4 " href="{{ url('/manual') }}">
+                <a class="text-lg py-2 px-4 " href="{{URL::asset('/image/Panduan Penggunaan SIPETIS.pdf')}}">
                     MANUAL
                 </a>
               </li>

@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <label for="points">{{ __('points') }}</label>
-                        <input type="number" class="form-control" id="points" placeholder="{{ __('option text') }}" name="points" value="{{ old('points', $option->points) }}" />
+                        <input type="number" step="0.01" class="form-control" id="points" placeholder="{{ __('option text') }}" name="points" value="{{ old('points', $option->points) }}" />
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">{{ __('Save')}}</button>
                 </form>

@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="icon" href="{{ asset('')}}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('asset('/image/logo-baru.png')')}}" type="image/x-icon">
 </head>
 <body>
     <div id="app">

@@ -25,6 +25,7 @@
                                 <th>Nama</th>
                                 <th>Total Poin</th>
                                 <th>Hasil Survei</th>
+                                <th>Rekomendasi</th>
                                 {{-- <th>Questions</th> --}}
                                 <th></th>
                             </tr>
@@ -35,8 +36,9 @@
                                 <td>
                                 </td>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $result->id_user }}</td>
+                                <td>{{ $result->nama_lengkap }}</td>
                                 <td>{{ $result->final_points }}</td>
+                                <td>{{ $result->hasil_survei }}</td>
                                 <td>{{ $result->rekomendasi }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">

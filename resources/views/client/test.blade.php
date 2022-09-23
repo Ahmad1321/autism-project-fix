@@ -33,8 +33,14 @@
                                 <div class="card-body border-[1px] border-slate-500 p-4 rounded-lg">
                                     @foreach($category->categoryQuestions as $question)
                                         <div class="card @if(!$loop->last)mb-3 @endif">
-                                            <div class="card-header bg-gray-100 px-4 py-2 rounded-t border-[1px] border-slate-500">{{ $question->question_text }}</div>
-                        
+                                            <div class="card-header bg-gray-100 px-4 py-2 rounded-t border-[1px] border-slate-500">
+                                                <div>{{ $question->question_text }}</div>
+                                                @if($question->image_path != null)
+                                                <div>
+                                                    <img src="{{URL::asset($question->image_path)}}" class="my-5 border-2 border-gray-900">
+                                                </div>
+                                                @endif
+                                            </div>
                                             <div class="card-body px-4 py-2 border-[1px] border-t-0 rounded-b border-slate-500">
                                                 <input type="hidden" name="questions[{{ $question->id }}]" value="">
                                                 @foreach($question->questionOptions as $option)

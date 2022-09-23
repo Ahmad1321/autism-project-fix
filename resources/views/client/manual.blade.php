@@ -1,7 +1,7 @@
 @extends('layouts.client')
 
 @section('content')
-<div class="container">
+<div class="container pt-28">
     <div class="flex justify-center">
         <p class="font-bold text-3xl" style="color: rgb(220 38 38);"
         >TATA CARA PENGISIAN</p>

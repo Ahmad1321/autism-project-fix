@@ -36,7 +36,7 @@
 
                                 </td>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $result->category }}</td>
+                                <td>{{ $result->user->nama_lengkap }}</td>
                                 <td>{{ $result->total_points }}</td>
                                 <td>{{ $result->hasil_survei }}</td>
                                 {{-- <td>

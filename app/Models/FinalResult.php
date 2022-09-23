@@ -13,6 +13,7 @@ class FinalResult extends Model
     protected $fillable = [
       'id_user',
       'final_points',
+      'hasil_survei',
       'rekomendasi',
     ];
 
