@@ -42,12 +42,6 @@ Route::get('/pilihan/{id_datauser}', [PilihanController::class, 'index']);
 
 Route::get('/finalresults/{id}', [TestController::class, 'showResult']);
 
-Route::get('/isi_nama', function () {
-    return view('client.isi_nama');
-});
-
-Route::post('/isi_nama', [DataUserController::class, 'store']);
-
 Route::post('/finishtest/{survei}/{id}', [TestController::class, 'storeWithId']);
 
 Route::get('/submit-rekomendasi/{id}', function () {
@@ -57,10 +51,17 @@ Route::get('/submit-rekomendasi/{id}', function () {
 Route::post('/submit-rekomendasi/{id}', [FinalResultController::class, 'store']);
 
 // Route::get('/pilihan', function () {
-//     return view('client.pilihan');
-// });
+    //     return view('client.pilihan');
+    // });
+    
 
 Route::group(['middleware' => 'auth'], function() {
+    
+    Route::get('/isi_nama', function () {
+        return view('client.isi_nama');
+    });
+    Route::post('/isi_nama', [DataUserController::class, 'store']);
+    
     Route::get('test/{categories}',[\App\Http\Controllers\TestController::class, 'categoryTest'])->name('client.test.categoryTest');
     Route::get('test/{categories}/{id}',[\App\Http\Controllers\TestController::class, 'categoryTestWithId']);
     Route::get('test',[\App\Http\Controllers\TestController::class, 'index'])->name('client.test');
@@ -92,6 +93,11 @@ Route::group(['middleware' => 'auth'], function() {
         // results
         Route::resource('results', \App\Http\Controllers\Admin\ResultController::class);
         Route::delete('results_mass_destroy', [\App\Http\Controllers\Admin\ResultController::class, 'massDestroy'])->name('results.mass_destroy');
+        
+        // final
+        Route::resource('final', \App\Http\Controllers\Admin\FinalResultController::class);
+        Route::delete('final_mass_destroy', [\App\Http\Controllers\Admin\FinalResultController::class, 'massDestroy'])->name('finalresults.mass_destroy');
+    
     });
 
 });

@@ -15,4 +15,8 @@ class FinalResult extends Model
       'final_points',
       'rekomendasi',
     ];
+
+    public function user(){
+      return $this->belongsTo(DataUser::class);
+    }
 }

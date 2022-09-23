@@ -3,7 +3,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 
-<div class="flex justify-center items-center">
+<div class="flex justify-center items-center pt-28">
     <div class="w-[900px] h-[500px]">
         <div class="grid grid-cols-3 gap-4 ">
             <a href="/test/1/{{ $id }}" class="<?php if($sudah[0] == true) echo "pointer-events-none" ?>">

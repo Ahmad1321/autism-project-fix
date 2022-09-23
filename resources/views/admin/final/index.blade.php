@@ -30,29 +30,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($results as $result)
+                            @forelse($final as $result)
                             <tr data-entry-id="{{ $result->id }}">
                                 <td>
-
                                 </td>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $result->category }}</td>
-                                <td>{{ $result->total_points }}</td>
-                                <td>{{ $result->hasil_survei }}</td>
-                                {{-- <td>
-                                    @foreach($result->questions as $key => $question)
-                                        <span class="badge badge-info">{{ $question->question_text }}</span>
-                                    @endforeach
-                                </td> --}}
+                                <td>{{ $result->id_user }}</td>
+                                <td>{{ $result->final_points }}</td>
+                                <td>{{ $result->rekomendasi }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{ route('admin.results.show', $result->id) }}" class="btn btn-success">
+                                        <a href="/finalresults/{{ $result->id_user }}" class="btn btn-success">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('admin.results.edit', $result->id) }}" class="btn btn-info">
-                                            <i class="fa fa-pencil-alt"></i>
-                                        </a>
-                                        <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('admin.results.destroy', $result->id) }}" method="POST">
+                                        <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('admin.final.destroy', $result->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">

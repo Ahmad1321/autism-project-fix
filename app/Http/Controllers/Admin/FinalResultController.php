@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\FinalResult;
 use App\Models\Result;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Contracts\View\View;
 
 class FinalResultController extends Controller
 {
@@ -14,9 +16,11 @@ class FinalResultController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
-        //
+      $final = FinalResult::all();
+
+      return view('admin.final.index', compact('final'));
     }
 
     /**
@@ -96,8 +100,13 @@ class FinalResultController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(FinalResult $final): RedirectResponse
     {
-        //
+        $final->delete();
+
+        return back()->with([
+            'message' => 'successfully deleted !',
+            'alert-type' => 'danger'
+        ]);
     }
 }

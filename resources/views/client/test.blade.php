@@ -1,7 +1,7 @@
 @extends('layouts.client')
 
 @section('content')
-<div class="container mx-auto max-w-[1000px]">
+<div class="container mx-auto max-w-[1000px] pt-28">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="">

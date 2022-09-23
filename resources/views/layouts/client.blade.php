@@ -22,7 +22,7 @@
 <body>
     <div id="app">
 
-        <nav class="w-full fixed p-5 bg-white text-gray-900 shadow-md md:flex md:items-center md:justify-between">
+        <nav class="w-full fixed p-5 bg-white text-gray-900 shadow-md md:flex md:items-center md:justify-between z-999">
             <div class="flex justify-between items-center ">
               <span class=" font-bold text-2xl cursor-pointer">
                 <a href="{{ url('/home') }}" >
@@ -50,7 +50,7 @@
               </li>
               <li class="mx-4 my-6 md:my-0">
                 <a class="text-lg py-2 px-4 " href="{{ route('admin.results.index') }}">
-                    DASBOARD
+                    DASHBOARD
                 </a>
               </li>
               
@@ -85,10 +85,10 @@
             }
           </script>
 
-</div>
-<main class="pb-4 pt-28">
+<main class="z-0">
     @yield('content')
 </main>
 </body>
+</div>
 
 </html>

@@ -1,15 +1,15 @@
 @extends('layouts.client')
 
 @section('content')
-<div class="container mx-auto max-w-[1000px]">
+<div class="container mx-auto max-w-[1000px] pt-28">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="">
                 <div class="text-3xl text-center font-semibold mb-7 mt-7">Hasil Survei Total</div>
 
                 
-                <div class="overflow-x-auto relative mb-7">
-                  <table class="w-full text-sm text-left text-gray-500 ">
+                <div class="border-2 mb-7">
+                  <table class="w-full text-sm text-left text-gray-500  ">
                       <thead class="text-md border-b  text-gray-700 uppercase bg-gray-50">
                           <tr>
                               <th scope="col" class="py-3 px-6">
@@ -17,9 +17,6 @@
                               </th>
                               <th scope="col" class="py-3 px-6">
                                   Skor
-                              </th>
-                              <th scope="col" class="py-3 px-6">
-                                  Id Kategori
                               </th>
                               <th scope="col" class="py-3 px-6">
                                   
@@ -35,9 +32,6 @@
                               </th>
                               <td class="py-4 px-6">
                                 <p>{{ $results[$i]->total_points }}</p>
-                              </td>
-                              <td class="py-4 px-6">
-                                <p>{{ $results[$i]->jenis_survei }}</p>
                               </td>
                               <td class="py-4 px-6">
                                 <a href="{{ route('client.results.show', $results[$i]->id) }}" class="py-2 px-4 bg-blue-500 rounded-lg text-white ">

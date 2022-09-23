@@ -43,7 +43,11 @@
                     <i class="fas fa-cogs"></i>
                     <span>Hasil Survei</span></a>
             </li>
-
+            <li class="nav-item {{ request()->is('admin/final') || request()->is('admin/final') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.final.index') }}">
+                    <i class="fas fa-cogs"></i>
+                    <span>Hasil dan Kesimpulan</span></a>
+            </li>
 
 
         </ul>
