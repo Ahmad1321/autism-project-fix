@@ -8,14 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>SIPETIS | Home</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
@@ -26,88 +22,73 @@
 <body>
     <div id="app">
 
-        <div class=" bg-white">
-            <nav class="drop-shadow-xl border-b-[1px] border-slate-400">
-                <div class="flex flex-row justify-between items-center bg-transparent">
-                        <a href="{{ url('/home') }}">
-                            <img src="{{URL::asset('/image/logo-baru.png')}}" href="{{ route('client.test') }}"
-                                class="w-[70px] mr-5"
-                            >
-                        </a>
-                    <div class="flex flex-row mr-3">
-                        <a class="text-lg py-2 px-4 text-slate-800" href="{{ url('/home') }}">
-                            HOME
-                        </a>
-                        <a class="text-lg py-2 px-4 text-slate-800" href="{{ url('/manual') }}">
-                            MANUAL
-                        </a>
-                        <a class="text-lg py-2 px-4 text-slate-800" href="{{ route('admin.results.index') }}">
-                            DASBOARD
-                        </a>
-                        
-                    </div>
-                    <div class="">
-                        <h5 class="flex flex-row">
-                            @auth
-                                <div class="mr-5 ">
-                                    <a class="text-lg text-slate-50 py-2 px-4 font-thin bg-slate-800 hover:font-bold  transition duration-300 ease-in" onclick="event.preventDefault();document.getElementById('logout-form').submit();" href="{{ route('logout') }}">
-                                        Logout
-                                    </a>
-                                </div>
-                            @else
-                            <div class="mr-5 ">
-                                <a class="text-lg text-slate-50 py-2 px-4 font-thin bg-slate-800 hover:font-bold  transition duration-300 ease-in" href="{{ route('login') }}">
-                                    Login
-                                </a>
-                            </div>
-                            @endauth
-                        </h5>
-                        <form class="" action="{{ route('logout') }}" id="logout-form" method="post">
-                            @csrf
-                        </form>
-                    </div>
-                    {{-- <div class="md:hidden flex items-center">
-                        <button class="outline-none mobile-menu-button">
-                            <svg class=" w-6 h-6 text-gray-500 hover:text-green-500 "
-                                x-show="!showMenu"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                            <path d="M4 6h16M4 12h16M4 18h16"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="hidden mobile-menu">
-                        <ul class="">
-                            <li><a href="{{ url('/home') }}" class="block text-sm px-2 py-4 font-semibold">HOME</a></li>
-                            <li><a href="{{ url('/manual') }}" class="block text-sm px-2 py-4 transition duration-300">MANUAL</a></li>
-                            <li><a href="{{ route('admin.results.index') }}" class="block text-sm px-2 py-4 transition duration-300">SET SCORE</a></li>
-                            <li><a onclick="event.preventDefault();document.getElementById('logout-form').submit();" href="{{ route('logout') }}" class="block text-sm px-2 py-4 transition duration-300">LOGOUT</a></li>
-                        </ul>
-                    </div> --}}
+        <nav class="w-full fixed p-5 bg-white text-gray-900 shadow-md md:flex md:items-center md:justify-between">
+            <div class="flex justify-between items-center ">
+              <span class=" font-bold text-2xl cursor-pointer">
+                <a href="{{ url('/home') }}" >
+                    <img src="{{URL::asset('/image/logo-baru.png')}}" href="{{ route('client.test') }}"
+                        class="w-[70px] h-10 inline">
+                </a>
+                SIPETIS
+              </span>
         
-                </div>
-            </nav>
+              <span class="cursor-pointer mx-2 md:hidden block">
+                <img name="menu" src="{{URL::asset('/image/menu.png')}}" class="h-10 inline" onclick="Menu(this)">
+              </span>
+            </div>
+        
+            <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-transparent w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+              <li class="mx-4 my-6 md:my-0">
+                <a class="text-lg py-2 px-4 " href="{{ url('/home') }}">
+                    HOME
+                </a>
+              </li>
+              <li class="mx-4 my-6 md:my-0">
+                <a class="text-lg py-2 px-4 " href="{{ url('/manual') }}">
+                    MANUAL
+                </a>
+              </li>
+              <li class="mx-4 my-6 md:my-0">
+                <a class="text-lg py-2 px-4 " href="{{ route('admin.results.index') }}">
+                    DASBOARD
+                </a>
+              </li>
+              
+                <h5 class="flex flex-row">
+                    @auth
+                        <div class="mr-5 ">
+                            <a class="bg-gray-700 text-white  duration-500 px-6 py-2 mx-4 hover:bg-red-900 rounded " onclick="event.preventDefault();document.getElementById('logout-form').submit();" href="{{ route('logout') }}">
+                                Logout
+                            </a>
+                        </div>
+                    @else
+                    <div class="mr-5 ">
+                        <a class="bg-gray-700 text-white duration-500 px-6 py-2 mx-4 hover:bg-green-900 rounded " href="{{ route('login') }}">
+                            Login
+                        </a>
+                    </div>
+                    @endauth
+                </h5>
+                <form class="" action="{{ route('logout') }}" id="logout-form" method="post">
+                    @csrf
+                </form>
+               
+                <h2 class=""></h2>
+            </ul>
+          </nav>    
+        
+        
+          <script>
+            function Menu(e){
+              let list = document.querySelector('ul');
+              e.name === 'menu' ? (e.name = "close",list.classList.add('top-[80px]') , list.classList.add('opacity-100')) :( e.name = "menu" ,list.classList.remove('top-[80px]'),list.classList.remove('opacity-100'))
+            }
+          </script>
 
-            
-        </div>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+</div>
+<main class="pb-4 pt-28">
+    @yield('content')
+</main>
 </body>
-                    <script>
-                        const btn = document.querySelector("button.mobile-menu-button");
-                        const menu = document.querySelector(".mobile-menu");
-        
-                        btn.addEventListener("click", () => {
-                            menu.classList.toggle("hidden");
-                        });
-                    </script>
 
 </html>

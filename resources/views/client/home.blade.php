@@ -1,7 +1,7 @@
 @extends('layouts.client')
 
 @section('content')
-<div class="flex justify-center h-[600px] mt-[30px]">
+<div class="flex justify-center h-[600px]">
     <div class="mx-12 w-[80%] ">
         <div class="grid sm:grid-cols-1 md:grid-cols-2 h-[500px] gap-4 ">
             <div class="flex flex-col justify-center items-center">
@@ -14,10 +14,10 @@
                     menggunakan survei melalui form dengan pertanyaan dari expert untuk meneliti level autis pada
                     anak
                 </div>
-                <div class="flex justify-start pl-3 mt-3 w-[380px]">
+                <div class="flex justify-start pl-3 mt-5 w-[380px]">
                     <div class="text-lg">
                         <a href="{{ url('/isi_nama') }}">
-                            <button class="py-2 px-4 bg-[#FF0000] hover:font-bold rounded-xl transition text-white shadow-xl font-medium" >
+                            <button class="py-2 px-4 bg-red-700 hover:bg-red-100 hover:text-red-700 rounded-xl transition text-white shadow-xl font-medium" >
                                 Mulai Survei
                             </button>
                         </a>
@@ -27,17 +27,31 @@
             <div class="flex justify-center items-center">
                 <img src="{{URL::asset('/image/autis-example.png')}}" class="w-[900px]">
             </div>
-          </div>
+        </div>
     </div>
 </div>
 
-<div class="w-full h-[500px] bg-slate-400 flex justify-center items-center">
-    <div class="w-[1100px] h-[400px] bg-white flex flex-row justify-center items-center gap-4">
-        <div class="w-[500px] h-[350px] flex justify-center items-center border-2 border-black">
-            <div>left content</div>
+<div class="w-full h-[500px] bg-gradient-to-l from-sky-800 to-slate-500 flex justify-center items-center">
+    <div class="w-[1100px] h-[400px] flex flex-row justify-center items-center gap-4  backdrop-greyscale-125 bg-white/30 rounded-tl-3xl rounded-br-3xl">
+        <div class="w-[500px] h-[290px] flex justify-center items-start">
+            <div>
+                <a href="https://www.youtube.com/watch?v=pDO19S77Hz4"><img src="{{URL::asset('/image/example-video.png')}}" class="w-[900px] rounded-md"></a>
+            </div>
         </div>
-        <div class="w-[500px] h-[350px] flex justify-center items-center border-2 border-black">
-            <div>right content</div>
+        <div class="w-[500px] h-[290px] flex justify-center items-start ml-5 p-7">
+            <div>
+                <h2 class="text-4xl font-semibold text-[#FF0000]">
+                    Judul Video
+                </h2>
+                <p class="text-xl">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid, accusantium porro harum expedita praesentium reiciendis similique. Molestiae, exercitationem ea. Rem!
+                </p>
+                <a href="https://www.youtube.com/watch?v=pDO19S77Hz4">
+                    <button class="px-4 py-2 rounded-xl bg-[#FF0000] hover:bg-red-900 text-white font-bold my-4">
+                        Lihat Video
+                    </button>
+                </a>
+            </div>
         </div>
 
     </div>
