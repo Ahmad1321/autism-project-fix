@@ -42,7 +42,7 @@
                                 <td>{{ $result->rekomendasi }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="/finalresults/{{ $result->id_user }}" class="btn btn-success">
+                                        <a href="/newfinalresults/{{ $result->id_user }}" class="btn btn-success">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                         <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('admin.final.destroy', $result->id) }}" method="POST">

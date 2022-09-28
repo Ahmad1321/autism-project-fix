@@ -1,46 +1,74 @@
-@extends('layouts.client')
+@extends('layouts.result')
 
 @section('content')
-<div class="container pt-28">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="flex justify-center items-center flex-col">
-                <div class="text-3xl font-bold ">Hasil Survei</div>
 
-                <div class="">
-                    <div class="w-full flex justify-center items-center flex-col">
-                        <h1 class="text-xl ">{{$result->user->nama_lengkap}}</h1>
-                        <p class="mt-3">Total skor: {{ $result->total_points }}</p>
-                        <p class="">{{ $result->hasil_survei }}</p>
-                        <table class="w-[1000px] text-sm text-left text-gray-500 border-2 border-gray-400">
-                            <thead class=" text-md border-b  text-gray-700 uppercase bg-gray-50">
-                                <tr>
-                                    <th scope="col" class="py-3 px-6">
-                                        Pertanyaan
-                                    </th>
-                                    <th scope="col" class="py-3 px-6">
-                                        Poin
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($result->questions as $question)
-                                <tr class="bg-white border-b ">
-                                    <td class=" py-4 px-6 font-medium text-gray-900">
-                                        <p class=" w-1/2">
-                                        {{ $question->question_text }}
-                                        </p>
-                                    </td>
-                                    <td class="py-4 px-6">
-                                      <p>{{ $question->pivot->points }}</p>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+<div class="pt-12 flex justify-center">
+    <div class="p-7 w-5/6 flex flex-col border-2 bg-white rounded">
+        <div class="flex justify-center">
+            <h1 class="uppercase text-2xl font-bold tracking-wide text-center">Hasil Survei (jenis survei)</h1>
+        </div>
+
+        <div class="my-5 text-sm">
+            <table class="table-auto text-left font-normal tracking-wide">
+                <tr>
+                    <th class="font-medium">Nama Lengkap</th>
+                    <td>:</td>
+                    <td>{{$result->user->nama_lengkap}}</td>
+                </tr>
+                <tr>
+                    <th class="font-medium">Total Skor Kategori</th>
+                    <td>:</td>
+                    <td>{{ $result->total_points }}</td>
+                </tr>
+                <tr>
+                    <th class="font-medium">Hasil Survei</th>
+                    <td>:</td>
+                    <td>{{ $result->hasil_survei }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <ul class="list-disc pl-7 mb-3">
+                <li>
+                    <h3 class="text-lg font-semibold">Daftar Pertanyaan</h3>
+                </li>
+            </ul>
+            <table class="w-full text-sm text-left border-[1px] border-black">
+                <thead class="text-sm border-b border-black bg-gray-200 text-black uppercase">
+                    <tr>
+                        <th scope="col" class="py-3 px-6">
+                            Pertanyaan
+                        </th>
+                        <th scope="col" class="py-3 px-6 border-x border-black">
+                            Poin
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach($result->questions as $question)
+                    <tr class="bg-white border-b border-black">
+                        <td scope="" class="py-4 px-6 font-medium text-black whitespace-nowrap">
+                            <div class="whitespace-normal">
+                                {{ $question->question_text }}
+                            </div>
+                        </td>
+                        <td class="py-4 px-6 border-x border-black">
+                          <p class="font-bold">{{ $question->pivot->points }}</p>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="flex justify-center items-center mb-36 mt-12">
+    <div class="w-fit">
+        <div class="py-2 px-4 bg-red-700 hover:bg-red-200 hover:text-red-700 rounded-xl transition text-white shadow-xl font-medium">
+            <button onclick="history.back()">Kembali</button>
         </div>
     </div>
 </div>

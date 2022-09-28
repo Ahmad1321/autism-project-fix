@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\Admin\DataUserController;
-use App\Http\Controllers\Admin\FinalResultController;
-use App\Http\Controllers\Admin\PilihanController;
-use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\Admin\PilihanController;
+use App\Http\Controllers\Admin\DataUserController;
+use App\Http\Controllers\Admin\FinalResultController;   
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,8 @@ Route::get('/pilihan', function () {
 Route::get('/pilihan/{id_datauser}', [PilihanController::class, 'index']);
 
 Route::get('/finalresults/{id}', [TestController::class, 'showResult']);
+
+Route::get('/newfinalresults/{id}', [AController::class, 'index']);
 
 Route::post('/finishtest/{survei}/{id}', [TestController::class, 'storeWithId']);
 
