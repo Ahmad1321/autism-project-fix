@@ -1,4 +1,4 @@
-{{-- @extends('layouts.client') --}}
+@extends('layouts.client')
 
 @section('content')
 <div class="container mx-auto max-w-[1000px] pt-28">

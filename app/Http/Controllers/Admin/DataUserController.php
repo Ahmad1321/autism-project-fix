@@ -43,7 +43,7 @@ class DataUserController extends Controller
           'tanggallahir' => $request->tgllahir,
         ]);
 
-        return redirect("pilihan/$dataUser->id");
+        return redirect("/pilihan_besar/$dataUser->id");
     }
 
     /**

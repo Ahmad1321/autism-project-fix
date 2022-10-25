@@ -15,23 +15,37 @@ class PilihanController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index($id)
+    public function index($id_categories, $id_user)
     {
-      $sudah = DB::table('results')->where('user_id', '=', $id)->get();
-      $data = array_fill(0, 9, false);
+        $sudah = DB::table('results')->where('user_id', '=', $id_user)->get();
+        $data_categories = DB::table('categories')->where('id_big_categories', '=', $id_categories)->get();
 
-      $i = 0;
-      foreach ($sudah as $s) {
-        $data[$s->jenis_survei-1] = true;
-        $i++;
-      }
 
-      $finish = false;
-      if($i >= 9){
-        $finish = true;
-      }
-      // var_dump($data);
-      return view('client.pilihan')->with('sudah', $data)->with('finish', $finish)->with('id', $id);
+        $awal = 0;
+        if ($id_categories == 1) {
+            $awal = 0;
+        } else if ($id_categories == 2) {
+            $awal = 2;
+        } else if ($id_categories == 3) {
+            $awal = 4;
+        } else if ($id_categories == 4) {
+            $awal = 6;
+        }
+        
+        $data = array_fill($awal, count($data_categories), false);
+
+        $i = 0;
+        foreach ($sudah as $s) {
+            $data[$s->jenis_survei - 1] = true;
+            $i++;
+        }
+
+        $finish = false;
+        if ($i >= count($data_categories)) {
+            $finish = true;
+        }
+        // var_dump($data);
+        return view('client.pilihan')->with('awal', $awal)->with('data_categories', $data_categories)->with('sudah', $data)->with('finish', $finish)->with('id_user', $id_user);
     }
 
     /**

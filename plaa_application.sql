@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2022 at 07:58 AM
+-- Generation Time: Oct 25, 2022 at 09:23 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -24,12 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `big_categories`
+--
+
+CREATE TABLE `big_categories` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `big_categories`
+--
+
+INSERT INTO `big_categories` (`id`, `nama`) VALUES
+(1, 'Tes Bahasa'),
+(2, 'Tes Motorik'),
+(3, 'Tes Interaksi Sosial dan Kemandirian'),
+(4, 'Tes Akademik dan Pra Akademik');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_big_categories` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -38,16 +60,16 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Bahasa Verbal', NULL, '2022-09-18 19:29:15'),
-(2, 'Bahasa Non Verbal', NULL, '2022-09-18 19:29:21'),
-(3, 'Motorik Kasar', NULL, '2022-09-18 19:29:27'),
-(4, 'Motorik Halus', NULL, '2022-09-18 19:29:33'),
-(5, 'Interaksi Sosial dan Emosi', NULL, '2022-09-18 19:29:53'),
-(6, 'Kemandirian / Self Help', '2022-09-18 19:30:03', '2022-09-18 19:30:03'),
-(7, 'Akademik dan Pra Akademik (Membaca)', '2022-09-18 19:30:15', '2022-09-18 19:30:15'),
-(8, 'Akademik dan Pra Akademik (Berhitung)', '2022-09-18 19:30:19', '2022-09-18 19:30:19'),
-(9, 'Akademik dan Pra Akademik (Menulis)', '2022-09-18 19:30:23', '2022-09-18 19:30:23');
+INSERT INTO `categories` (`id`, `name`, `id_big_categories`, `created_at`, `updated_at`) VALUES
+(1, 'Bahasa Verbal', 1, NULL, '2022-09-18 19:29:15'),
+(2, 'Bahasa Non Verbal', 1, NULL, '2022-09-18 19:29:21'),
+(3, 'Motorik Kasar', 2, NULL, '2022-09-18 19:29:27'),
+(4, 'Motorik Halus', 2, NULL, '2022-09-18 19:29:33'),
+(5, 'Interaksi Sosial dan Emosi', 3, NULL, '2022-09-18 19:29:53'),
+(6, 'Kemandirian / Self Help', 3, '2022-09-18 19:30:03', '2022-09-18 19:30:03'),
+(7, 'Akademik dan Pra Akademik (Membaca)', 4, '2022-09-18 19:30:15', '2022-09-18 19:30:15'),
+(8, 'Akademik dan Pra Akademik (Berhitung)', 4, '2022-09-18 19:30:19', '2022-09-18 19:30:19'),
+(9, 'Akademik dan Pra Akademik (Menulis)', 4, '2022-09-18 19:30:23', '2022-09-18 19:30:23');
 
 -- --------------------------------------------------------
 
@@ -89,7 +111,26 @@ INSERT INTO `data_users` (`id`, `nama_lengkap`, `gender`, `tempat`, `tanggallahi
 (17, 'total', 'Perempuan', 'asd', '2022-09-23', '2022-09-23 06:29:41', '2022-09-23 06:29:41'),
 (18, 'asdads', 'Laki-laki', 'asdasd', '2022-09-06', '2022-09-23 06:44:20', '2022-09-23 06:44:20'),
 (19, 'Testing Beneran', 'Laki-laki', 'Bandung-test', '2022-09-19', '2022-09-23 08:35:02', '2022-09-23 08:35:02'),
-(20, 'fajri', 'Laki-laki', 'bandung', '2022-09-23', '2022-09-23 08:59:07', '2022-09-23 08:59:07');
+(20, 'fajri', 'Laki-laki', 'bandung', '2022-09-23', '2022-09-23 08:59:07', '2022-09-23 08:59:07'),
+(21, 'axel', 'Laki-laki', 'bandung', '2022-10-20', '2022-10-19 21:56:50', '2022-10-19 21:56:50'),
+(22, 'Arnesta Priyandana', 'Perempuan', 'Subang', '2004-06-15', '2022-10-19 22:01:35', '2022-10-19 22:01:35'),
+(23, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 22:36:11', '2022-10-19 22:36:11'),
+(24, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:05:29', '2022-10-19 23:05:29'),
+(25, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:37:55', '2022-10-19 23:37:55'),
+(26, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:38:17', '2022-10-19 23:38:17'),
+(27, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:38:41', '2022-10-19 23:38:41'),
+(28, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:40:02', '2022-10-19 23:40:02'),
+(29, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:41:57', '2022-10-19 23:41:57'),
+(30, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:43:47', '2022-10-19 23:43:47'),
+(31, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:45:19', '2022-10-19 23:45:19'),
+(32, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:45:48', '2022-10-19 23:45:48'),
+(33, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:48:33', '2022-10-19 23:48:33'),
+(34, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:49:49', '2022-10-19 23:49:49'),
+(35, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:50:18', '2022-10-19 23:50:18'),
+(36, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-19 23:51:34', '2022-10-19 23:51:34'),
+(37, 'aa', 'Laki-laki', 'aa', '2022-10-20', '2022-10-20 00:06:46', '2022-10-20 00:06:46'),
+(38, 'xx', 'Laki-laki', 'xx', '2022-10-20', '2022-10-20 01:18:56', '2022-10-20 01:18:56'),
+(39, 'aa', 'Laki-laki', 'aa', '2022-10-21', '2022-10-20 17:33:16', '2022-10-20 17:33:16');
 
 -- --------------------------------------------------------
 
@@ -132,7 +173,8 @@ INSERT INTO `finalresult` (`id`, `id_user`, `final_points`, `hasil_survei`, `rek
 (8, 16, 444.4, '', 'iya anaknya autis banget', '2022-09-23 06:28:56', '2022-09-23 06:28:56'),
 (9, 18, 577.5, 'Sedang', 'adsasd', '2022-09-23 06:47:08', '2022-09-23 06:47:08'),
 (10, 18, 577.5, 'Sedang', 'asdasdasd', '2022-09-23 08:58:16', '2022-09-23 08:58:16'),
-(11, 20, 606.3, 'Sedang', 'fajri tidak autis', '2022-09-23 09:01:19', '2022-09-23 09:01:19');
+(11, 20, 606.3, 'Sedang', 'fajri tidak autis', '2022-09-23 09:01:19', '2022-09-23 09:01:19'),
+(12, 22, 703.9, 'Berat', 'Semoga cepat pulih ya arnesta', '2022-10-19 22:07:22', '2022-10-19 22:07:22');
 
 -- --------------------------------------------------------
 
@@ -1872,7 +1914,216 @@ INSERT INTO `question_result` (`id`, `result_id`, `question_id`, `option_id`, `p
 (1306, 129, 148, 402, 0, NULL, NULL),
 (1307, 129, 149, 403, 0, NULL, NULL),
 (1308, 129, 151, 405, 0, NULL, NULL),
-(1309, 129, 152, 406, 0, NULL, NULL);
+(1309, 129, 152, 406, 0, NULL, NULL),
+(1310, 130, 31, 63, 6, NULL, NULL),
+(1311, 130, 33, 65, 8, NULL, NULL),
+(1312, 130, 34, 66, 8, NULL, NULL),
+(1313, 130, 35, 67, 8, NULL, NULL),
+(1314, 130, 36, 68, 7, NULL, NULL),
+(1315, 130, 42, 77, 5, NULL, NULL),
+(1316, 130, 32, 271, 0, NULL, NULL),
+(1317, 130, 37, 277, 0, NULL, NULL),
+(1318, 130, 38, 278, 0, NULL, NULL),
+(1319, 130, 39, 279, 0, NULL, NULL),
+(1320, 130, 40, 280, 0, NULL, NULL),
+(1321, 130, 41, 283, 0, NULL, NULL),
+(1322, 130, 43, 286, 0, NULL, NULL),
+(1323, 130, 44, 287, 0, NULL, NULL),
+(1324, 130, 45, 288, 0, NULL, NULL),
+(1325, 130, 46, 289, 0, NULL, NULL),
+(1326, 130, 47, 290, 0, NULL, NULL),
+(1327, 130, 48, 291, 0, NULL, NULL),
+(1328, 130, 49, 292, 0, NULL, NULL),
+(1329, 130, 50, 293, 0, NULL, NULL),
+(1330, 131, 11, 41, 8, NULL, NULL),
+(1331, 131, 12, 43, 8, NULL, NULL),
+(1332, 131, 13, 44, 8, NULL, NULL),
+(1333, 131, 14, 45, 7, NULL, NULL),
+(1334, 131, 15, 46, 7, NULL, NULL),
+(1335, 131, 16, 47, 6, NULL, NULL),
+(1336, 131, 17, 48, 6, NULL, NULL),
+(1337, 131, 19, 50, 7, NULL, NULL),
+(1338, 131, 21, 52, 8, NULL, NULL),
+(1339, 131, 22, 54, 7, NULL, NULL),
+(1340, 131, 23, 55, 8, NULL, NULL),
+(1341, 131, 24, 56, 7, NULL, NULL),
+(1342, 131, 26, 58, 6, NULL, NULL),
+(1343, 131, 27, 59, 7, NULL, NULL),
+(1344, 131, 28, 60, 7, NULL, NULL),
+(1345, 131, 18, 256, 0, NULL, NULL),
+(1346, 131, 20, 258, 0, NULL, NULL),
+(1347, 131, 25, 264, 0, NULL, NULL),
+(1348, 131, 29, 268, 0, NULL, NULL),
+(1349, 131, 30, 269, 0, NULL, NULL),
+(1350, 132, 69, 88, 5, NULL, NULL),
+(1351, 132, 67, 90, 8, NULL, NULL),
+(1352, 132, 63, 94, 5, NULL, NULL),
+(1353, 132, 61, 97, 8, NULL, NULL),
+(1354, 132, 60, 98, 7, NULL, NULL),
+(1355, 132, 54, 104, 8, NULL, NULL),
+(1356, 132, 52, 106, 6, NULL, NULL),
+(1357, 132, 51, 107, 8, NULL, NULL),
+(1358, 132, 70, 294, 0, NULL, NULL),
+(1359, 132, 68, 296, 0, NULL, NULL),
+(1360, 132, 66, 298, 0, NULL, NULL),
+(1361, 132, 65, 299, 0, NULL, NULL),
+(1362, 132, 64, 300, 0, NULL, NULL),
+(1363, 132, 62, 303, 0, NULL, NULL),
+(1364, 132, 59, 306, 0, NULL, NULL),
+(1365, 132, 58, 307, 0, NULL, NULL),
+(1366, 132, 57, 308, 0, NULL, NULL),
+(1367, 132, 56, 309, 0, NULL, NULL),
+(1368, 132, 55, 310, 0, NULL, NULL),
+(1369, 132, 53, 312, 0, NULL, NULL),
+(1370, 133, 71, 108, 7, NULL, NULL),
+(1371, 133, 72, 109, 8, NULL, NULL),
+(1372, 133, 73, 111, 7, NULL, NULL),
+(1373, 133, 74, 112, 5, NULL, NULL),
+(1374, 133, 75, 113, 8, NULL, NULL),
+(1375, 133, 76, 114, 8, NULL, NULL),
+(1376, 133, 77, 115, 7, NULL, NULL),
+(1377, 133, 78, 116, 6, NULL, NULL),
+(1378, 133, 79, 117, 7, NULL, NULL),
+(1379, 133, 80, 118, 4, NULL, NULL),
+(1380, 133, 81, 119, 5, NULL, NULL),
+(1381, 133, 82, 120, 5, NULL, NULL),
+(1382, 133, 83, 121, 6, NULL, NULL),
+(1383, 133, 84, 122, 6, NULL, NULL),
+(1384, 133, 85, 123, 5, NULL, NULL),
+(1385, 133, 86, 124, 7, NULL, NULL),
+(1386, 133, 88, 126, 6, NULL, NULL),
+(1387, 133, 90, 128, 7, NULL, NULL),
+(1388, 133, 87, 332, 0, NULL, NULL),
+(1389, 133, 89, 334, 0, NULL, NULL),
+(1390, 134, 91, 129, 8, NULL, NULL),
+(1391, 134, 92, 130, 8, NULL, NULL),
+(1392, 134, 93, 131, 8, NULL, NULL),
+(1393, 134, 94, 132, 8, NULL, NULL),
+(1394, 134, 95, 133, 8, NULL, NULL),
+(1395, 134, 96, 135, 8, NULL, NULL),
+(1396, 134, 97, 136, 9, NULL, NULL),
+(1397, 134, 100, 141, 8, NULL, NULL),
+(1398, 134, 101, 142, 6, NULL, NULL),
+(1399, 134, 103, 145, 7, NULL, NULL),
+(1400, 134, 104, 146, 7, NULL, NULL),
+(1401, 134, 107, 150, 8, NULL, NULL),
+(1402, 134, 108, 151, 5, NULL, NULL),
+(1403, 134, 109, 152, 6, NULL, NULL),
+(1404, 134, 110, 154, 6, NULL, NULL),
+(1405, 134, 98, 344, 0, NULL, NULL),
+(1406, 134, 99, 347, 0, NULL, NULL),
+(1407, 134, 102, 351, 0, NULL, NULL),
+(1408, 134, 105, 354, 0, NULL, NULL),
+(1409, 134, 106, 356, 0, NULL, NULL),
+(1410, 135, 111, 155, 5, NULL, NULL),
+(1411, 135, 112, 156, 6, NULL, NULL),
+(1412, 135, 113, 157, 6, NULL, NULL),
+(1413, 135, 114, 158, 7, NULL, NULL),
+(1414, 135, 115, 159, 7, NULL, NULL),
+(1415, 135, 116, 160, 6, NULL, NULL),
+(1416, 135, 117, 162, 6, NULL, NULL),
+(1417, 135, 118, 163, 5, NULL, NULL),
+(1418, 135, 119, 164, 6, NULL, NULL),
+(1419, 135, 120, 165, 8, NULL, NULL),
+(1420, 135, 121, 166, 6, NULL, NULL),
+(1421, 135, 122, 167, 6, NULL, NULL),
+(1422, 135, 123, 168, 6, NULL, NULL),
+(1423, 135, 125, 170, 5, NULL, NULL),
+(1424, 135, 128, 173, 5, NULL, NULL),
+(1425, 135, 129, 174, 5, NULL, NULL),
+(1426, 135, 130, 175, 5, NULL, NULL),
+(1427, 135, 124, 376, 0, NULL, NULL),
+(1428, 135, 126, 378, 0, NULL, NULL),
+(1429, 135, 127, 379, 0, NULL, NULL),
+(1430, 136, 131, 176, 8, NULL, NULL),
+(1431, 136, 132, 177, 8, NULL, NULL),
+(1432, 136, 133, 178, 8, NULL, NULL),
+(1433, 136, 134, 179, 8, NULL, NULL),
+(1434, 136, 135, 180, 9, NULL, NULL),
+(1435, 136, 136, 181, 6, NULL, NULL),
+(1436, 136, 137, 182, 6, NULL, NULL),
+(1437, 136, 138, 184, 7, NULL, NULL),
+(1438, 137, 139, 185, 7, NULL, NULL),
+(1439, 137, 140, 186, 7, NULL, NULL),
+(1440, 137, 141, 187, 7, NULL, NULL),
+(1441, 137, 142, 188, 7, NULL, NULL),
+(1442, 137, 143, 189, 7, NULL, NULL),
+(1443, 137, 145, 191, 7, NULL, NULL),
+(1444, 137, 144, 397, 0, NULL, NULL),
+(1445, 137, 146, 399, 0, NULL, NULL),
+(1446, 138, 147, 194, 7, NULL, NULL),
+(1447, 138, 148, 195, 7, NULL, NULL),
+(1448, 138, 149, 196, 7, NULL, NULL),
+(1449, 138, 150, 197, 8, NULL, NULL),
+(1450, 138, 151, 198, 8, NULL, NULL),
+(1451, 138, 152, 199, 8, NULL, NULL),
+(1452, 138, 155, 203, 6, NULL, NULL),
+(1453, 138, 156, 204, 6, NULL, NULL),
+(1454, 138, 157, 205, 8, NULL, NULL),
+(1455, 138, 158, 206, 7, NULL, NULL),
+(1456, 138, 159, 207, 7, NULL, NULL),
+(1457, 138, 153, 407, 0, NULL, NULL),
+(1458, 138, 154, 408, 0, NULL, NULL),
+(1459, 139, 31, 63, 6, NULL, NULL),
+(1460, 139, 32, 64, 8, NULL, NULL),
+(1461, 139, 33, 65, 8, NULL, NULL),
+(1462, 139, 34, 66, 8, NULL, NULL),
+(1463, 139, 35, 67, 8, NULL, NULL),
+(1464, 139, 36, 68, 7, NULL, NULL),
+(1465, 139, 37, 70, 7, NULL, NULL),
+(1466, 139, 38, 71, 7, NULL, NULL),
+(1467, 139, 39, 72, 8, NULL, NULL),
+(1468, 139, 40, 73, 7, NULL, NULL),
+(1469, 139, 41, 76, 8, NULL, NULL),
+(1470, 139, 42, 77, 5, NULL, NULL),
+(1471, 139, 43, 79, 7, NULL, NULL),
+(1472, 139, 44, 80, 7, NULL, NULL),
+(1473, 139, 45, 81, 8, NULL, NULL),
+(1474, 139, 46, 82, 8, NULL, NULL),
+(1475, 139, 47, 83, 5, NULL, NULL),
+(1476, 139, 48, 84, 7, NULL, NULL),
+(1477, 139, 49, 85, 8, NULL, NULL),
+(1478, 139, 50, 86, 8, NULL, NULL),
+(1479, 140, 70, 87, 8, NULL, NULL),
+(1480, 140, 68, 89, 7, NULL, NULL),
+(1481, 140, 64, 93, 8, NULL, NULL),
+(1482, 140, 63, 94, 5, NULL, NULL),
+(1483, 140, 61, 97, 8, NULL, NULL),
+(1484, 140, 60, 98, 7, NULL, NULL),
+(1485, 140, 59, 99, 7, NULL, NULL),
+(1486, 140, 57, 101, 5, NULL, NULL),
+(1487, 140, 56, 102, 8, NULL, NULL),
+(1488, 140, 55, 103, 6, NULL, NULL),
+(1489, 140, 54, 104, 8, NULL, NULL),
+(1490, 140, 53, 105, 5, NULL, NULL),
+(1491, 140, 52, 106, 6, NULL, NULL),
+(1492, 140, 51, 107, 8, NULL, NULL),
+(1493, 140, 69, 295, 0, NULL, NULL),
+(1494, 140, 67, 297, 0, NULL, NULL),
+(1495, 140, 66, 298, 0, NULL, NULL),
+(1496, 140, 65, 299, 0, NULL, NULL),
+(1497, 140, 62, 303, 0, NULL, NULL),
+(1498, 140, 58, 307, 0, NULL, NULL),
+(1499, 141, 111, 155, 5, NULL, NULL),
+(1500, 141, 112, 156, 6, NULL, NULL),
+(1501, 141, 113, 157, 6, NULL, NULL),
+(1502, 141, 114, 158, 7, NULL, NULL),
+(1503, 141, 115, 159, 7, NULL, NULL),
+(1504, 141, 116, 160, 6, NULL, NULL),
+(1505, 141, 117, 162, 6, NULL, NULL),
+(1506, 141, 118, 163, 5, NULL, NULL),
+(1507, 141, 119, 164, 6, NULL, NULL),
+(1508, 141, 120, 165, 8, NULL, NULL),
+(1509, 141, 121, 166, 6, NULL, NULL),
+(1510, 141, 122, 167, 6, NULL, NULL),
+(1511, 141, 123, 168, 6, NULL, NULL),
+(1512, 141, 124, 169, 6, NULL, NULL),
+(1513, 141, 125, 170, 5, NULL, NULL),
+(1514, 141, 126, 171, 5, NULL, NULL),
+(1515, 141, 127, 172, 5, NULL, NULL),
+(1516, 141, 130, 175, 5, NULL, NULL),
+(1517, 141, 128, 380, 0, NULL, NULL),
+(1518, 141, 129, 381, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1960,7 +2211,32 @@ INSERT INTO `results` (`id`, `user_id`, `total_points`, `hasil_survei`, `jenis_s
 (126, 20, 60.2, 'Sedang', 6, '2022-09-23 09:00:21', '2022-09-23 09:00:21'),
 (127, 20, 47.3, 'Berat', 7, '2022-09-23 09:00:28', '2022-09-23 09:00:28'),
 (128, 20, 51, 'Berat', 8, '2022-09-23 09:00:37', '2022-09-23 09:00:37'),
-(129, 20, 62.5, 'Berat', 9, '2022-09-23 09:00:51', '2022-09-23 09:00:51');
+(129, 20, 62.5, 'Berat', 9, '2022-09-23 09:00:51', '2022-09-23 09:00:51'),
+(130, 22, 40.6, 'Ringan', 1, '2022-10-19 22:01:50', '2022-10-19 22:01:50'),
+(131, 22, 106.7, 'Berat', 2, '2022-10-19 22:02:04', '2022-10-19 22:02:04'),
+(132, 22, 53.9, 'Sedang', 3, '2022-10-19 22:02:16', '2022-10-19 22:02:16'),
+(133, 22, 113.2, 'Berat', 4, '2022-10-19 22:02:29', '2022-10-19 22:02:29'),
+(134, 22, 107.6, 'Berat', 5, '2022-10-19 22:02:42', '2022-10-19 22:02:42'),
+(135, 22, 99.7, 'Berat', 6, '2022-10-19 22:02:55', '2022-10-19 22:02:55'),
+(136, 22, 60.5, 'Berat', 7, '2022-10-19 22:03:05', '2022-10-19 22:03:05'),
+(137, 22, 43.4, 'Berat', 8, '2022-10-19 22:03:13', '2022-10-19 22:03:13'),
+(138, 22, 78.3, 'Berat', 9, '2022-10-19 22:03:31', '2022-10-19 22:03:31'),
+(139, 36, 141, 'Berat', 1, '2022-10-20 00:34:28', '2022-10-20 00:34:28'),
+(140, 36, 95.5, 'Berat', 3, '2022-10-20 01:13:14', '2022-10-20 01:13:14'),
+(141, 36, 105.4, 'Berat', 6, '2022-10-20 01:13:59', '2022-10-20 01:13:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `result_big_categories`
+--
+
+CREATE TABLE `result_big_categories` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `total_result` int(11) NOT NULL,
+  `kesimpulan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -2046,6 +2322,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `big_categories`
+--
+ALTER TABLE `big_categories`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `categories`
@@ -2139,6 +2421,12 @@ ALTER TABLE `results`
   ADD KEY `results_jenis_survei_foreign` (`jenis_survei`);
 
 --
+-- Indexes for table `result_big_categories`
+--
+ALTER TABLE `result_big_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -2164,16 +2452,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `big_categories`
+--
+ALTER TABLE `big_categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `data_users`
 --
 ALTER TABLE `data_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -2185,7 +2479,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `finalresult`
 --
 ALTER TABLE `finalresult`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -2227,13 +2521,19 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT for table `question_result`
 --
 ALTER TABLE `question_result`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1310;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1519;
 
 --
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+
+--
+-- AUTO_INCREMENT for table `result_big_categories`
+--
+ALTER TABLE `result_big_categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roles`

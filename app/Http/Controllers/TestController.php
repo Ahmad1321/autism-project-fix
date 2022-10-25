@@ -115,7 +115,7 @@ class TestController extends Controller
 
         $result->questions()->sync($questions);
 
-        return redirect("pilihan/$id");
+        return redirect("/pilihan_besar/$id");
     }
 
     public function categoryTest(Request $request, $categories)

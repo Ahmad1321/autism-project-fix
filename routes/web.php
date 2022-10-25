@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Admin\PilihanController;
 use App\Http\Controllers\Admin\DataUserController;
-use App\Http\Controllers\Admin\FinalResultController;   
+use App\Http\Controllers\Admin\FinalResultController;
+use App\Http\Controllers\PilihanBesarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ use App\Http\Controllers\Admin\FinalResultController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 Route::get('/', function () {
     return view('client.home');
 });
@@ -35,11 +38,17 @@ Route::get('/manual', function () {
     return view('client.manual');
 });
 
+Route::get('/axel', function () {
+    return view('client.isi_komentar_divisi');
+});
+
 Route::get('/pilihan', function () {
     return view('client.pilihan');
 });
 
-Route::get('/pilihan/{id_datauser}', [PilihanController::class, 'index']);
+Route::get('/pilihan/{id_categories}/{id_user}', [PilihanController::class, 'index']);
+
+Route::get('/pilihan_besar/{id_user}', [PilihanBesarController::class, 'index']);
 
 Route::get('/finalresults/{id}', [TestController::class, 'showResult']);
 
