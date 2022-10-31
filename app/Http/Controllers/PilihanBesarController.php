@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ResultBigCategories;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -63,9 +65,120 @@ class PilihanBesarController extends Controller
             }
         }
 
+        $check_result = 0;
+      
+
 
         return view('client.pilihan_besar')->with("big_categories", $data_big_categories)
-        ->with('id_user', $id)->with('check', $sudahX)->with('total_diisi', $count_total_diisi);
+        ->with('id_user', $id)->with('check', $sudahX)->with('total_diisi', $count_total_diisi)
+        ->with('check_result', $check_result);
+    }
+
+    public function fillResult($id_big_categories, $id_user){
+        $data_big_result = DB::table('result_big_categories')
+        ->where('id_big_categories', $id_big_categories)
+        ->where('id_user', $id_user)
+        ->get();
+
+        $check_data = count($data_big_result);
+        
+        $name_big_categories = DB::table('big_categories')
+        ->where('id', $id_big_categories)->get();
+
+        if($id_big_categories == 1){
+            $data_hasil = DB::table('results')
+        ->where('user_id', $id_user)
+        ->whereBetween('jenis_survei', [1,2])
+        ->get();    
+        }else if($id_big_categories == 2){
+            $data_hasil = DB::table('results')
+        ->where('user_id', $id_user)
+        ->whereBetween('jenis_survei', [3,4])
+        ->get();    
+        }else if($id_big_categories == 3){
+            $data_hasil = DB::table('results')
+        ->where('user_id', $id_user)
+        ->whereBetween('jenis_survei', [5,6])
+        ->get();    
+        }else if($id_big_categories == 4){
+            $data_hasil = DB::table('results')
+        ->where('user_id', $id_user)
+        ->whereBetween('jenis_survei', [7,9])
+        ->get();    
+        }
+
+        $sum = 0;
+        foreach($data_hasil as $a){
+            $sum += $a->total_points;
+        }
+
+        $data_users = DB::table('data_users')
+        ->where('id', $data_hasil[0]->user_id)
+        ->get();
+
+        $categories = DB::table('categories')->get();
+        $big_categories = DB::table('big_categories')->get();
+
+        if($check_data == 0){
+            return view('client.isi_komentar_divisi')->with('name', $name_big_categories)
+        ->with('data_result', $data_hasil)->with('sum', $sum)->with('categories', $categories)
+        ->with('id_big_categories', $id_big_categories)
+        ->with('id_user', $id_user);
+        }else if($check_data != 0){
+            return view('client.konfirmasi_kesimpulan_selesai')
+            ->with('id_user', $id_user)
+            ->with('d1', $data_big_result)
+            ->with('d2', $data_hasil)
+            ->with('c', $categories)
+            ->with('bc', $big_categories)
+            ->with('du', $data_users);
+            }
+        
+    }
+
+    public function getResult($id_user, $id_big_categories){
+        $data_big_result = DB::table('result_big_categories')
+        ->where('id_user', $id_user)
+        ->where('id_big_categories', $id_big_categories)
+        ->get();
+
+        if($id_big_categories == 1){
+            $data_result_test = DB::table('results')
+        ->where('user_id', $id_user)
+        ->whereBetween('jenis_survei', [1,2])
+        ->get();
+        }else if($id_big_categories ==2){
+            $data_result_test = DB::table('results')
+        ->where('user_id', $id_user)
+        ->whereBetween('jenis_survei', [3,4])
+        ->get();
+        }else if($id_big_categories ==3){
+            $data_result_test = DB::table('results')
+        ->where('user_id', $id_user)
+        ->whereBetween('jenis_survei', [5,6])
+        ->get();
+        }else if($id_big_categories ==4){
+            $data_result_test = DB::table('results')
+        ->where('user_id', $id_user)
+        ->whereBetween('jenis_survei', [7,9])
+        ->get();
+        }
+
+        $categories = DB::table('categories')->get();
+        $big_categories = DB::table('big_categories')->get();
+        
+        $data_users = DB::table('data_users')
+        ->where('id', $data_result_test[0]->user_id)
+        ->get();
+
+        return view('client.hasil_perkategori')
+        ->with('d1', $data_big_result)
+        ->with('d2', $data_result_test)
+        ->with('c', $categories)
+        ->with('du', $data_users)
+        ->with('bc', $big_categories);
+
+
     }
 
     /**
@@ -84,9 +197,20 @@ class PilihanBesarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id_big_categories, $id_user)
     {
-        //
+        $result = ResultBigCategories::create([
+            'id_user' => $id_user,
+            'id_big_categories' => $id_big_categories,
+            'total_result' => $request->total_result,
+            'kesimpulan' => $request->kesimpulan
+        ]);
+
+        $check_result = 1;
+
+        return redirect("/pilihan_besar/$id_user")
+        ->with('check_result', $check_result);
+        // echo $request->total_result;
     }
 
     /**

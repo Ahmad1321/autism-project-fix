@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\PilihanController;
 use App\Http\Controllers\Admin\DataUserController;
 use App\Http\Controllers\Admin\FinalResultController;
 use App\Http\Controllers\PilihanBesarController;
+use App\Http\Controllers\Admin\KeseluruhanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,11 +51,17 @@ Route::get('/pilihan/{id_categories}/{id_user}', [PilihanController::class, 'ind
 
 Route::get('/pilihan_besar/{id_user}', [PilihanBesarController::class, 'index']);
 
+Route::get('kesimpulan/pilihan_besar/{id_categories}/{id_user}', [PilihanBesarController::class, 'fillResult']);
+
+Route::get('kesimpulan/pilihan_besar/view/{id_user}/{id_categories}', [PilihanBesarController::class, 'getResult']);
+
 Route::get('/finalresults/{id}', [TestController::class, 'showResult']);
 
 Route::get('/newfinalresults/{id}', [AController::class, 'index']);
 
 Route::post('/finishtest/{survei}/{id}', [TestController::class, 'storeWithId']);
+
+Route::post('/fillResult/{id_big_categories}/{id_user}', [PilihanBesarController::class, 'store']);
 
 Route::get('/submit-rekomendasi/{id}', function () {
     return view('client.home');
@@ -109,7 +116,10 @@ Route::group(['middleware' => 'auth'], function() {
         // final
         Route::resource('final', \App\Http\Controllers\Admin\FinalResultController::class);
         Route::delete('final_mass_destroy', [\App\Http\Controllers\Admin\FinalResultController::class, 'massDestroy'])->name('finalresults.mass_destroy');
-    
+        
+        // keseluruhan
+        Route::resource('keseluruhan', \App\Http\Controllers\Admin\KeseluruhanController::class);
+        Route::delete('keseluruhan_mass_destroy', [\App\Http\Controllers\Admin\KeseluruhanController::class, 'massDestroy'])->name('keseluruhan.mass_destroy');
     });
 
 });

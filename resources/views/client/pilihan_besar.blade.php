@@ -5,11 +5,22 @@
 <div class="w-full h-[500px] pt-28 flex justify-center items-center">
     <div class="grid grid-cols-2 gap-4">
         @foreach ($big_categories as $c)
-        <a href="/pilihan/{{$c->id}}/{{$id_user}}" class="<?php if($check[$c->id - 1] == true) echo "pointer-events-none" ?>">                
-            <div class="h-[200px] w-[400px] <?php echo ($check[$c->id - 1] == false) ? "bg-slate-800" : "bg-green-500" ?> flex justify-center items-center rounded-xl  transition duration-300 ease-in-out">
-                <p class="text-slate-50 text-xl font-bold">{{$c->nama}}</p>
-            </div>
-        </a>
+        <div>
+            <a href="/pilihan/{{$c->id}}/{{$id_user}}" class="<?php if($check[$c->id - 1] == true) echo "pointer-events-none" ?>">
+                <div class="flex flex-col h-[200px] w-[400px] <?php echo ($check[$c->id - 1] == false) ? "bg-slate-800" : "bg-green-500" ?> flex justify-center items-center rounded-xl  transition duration-300 ease-in-out">
+                    <p class="text-slate-50 text-xl font-bold">{{$c->nama}}</p>
+                    <div class="mt-5 cursor-pointer">
+                        <a href="/kesimpulan/pilihan_besar/{{$c->id}}/{{$id_user}}">
+                            <button class="pointer-events-auto shadow-xl w-fit p-2 bg-sky-900 text-slate-50
+                            rounded-md text-xs uppercase font-semibold tracking-wide hover:bg-slate-900 trasition duration-300 ease-in-out hover:text-sky-500 <?php if($check[$c->id - 1] == false) echo "hidden" ?>">
+                                isi kesimpulan
+                            </button>
+                            
+                        </a>
+                    </div>
+                </div>
+            </a>
+        </div>
         @endforeach
     </div>
     {{-- <p>{{$big_categories[0]->nama}}</p>

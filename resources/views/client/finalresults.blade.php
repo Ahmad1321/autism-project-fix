@@ -58,8 +58,7 @@
                 <form action="/submit-rekomendasi/{{ $results[0]->user_id }}" method="POST" class="rekomendasi mt-4">
                   @csrf
                   <label for="rekomendasi" class="font-semibold">Kesimpulan dan Rekomendasi </label>
-                  <textarea placeholder="isi rekomendasi" name="rekomendasi" id="rekomendasi" rows="5" class="border-[1px] border-slate-500 w-full p-2">
-                  </textarea>
+                  <textarea placeholder="isi rekomendasi" name="rekomendasi" id="rekomendasi" rows="5" class="border-[1px] border-slate-500 w-full p-2"></textarea>
 
                   <div class="btn-action flex justify-center">
                     <a href="/pilihan/{{ $results[0]->user_id }}" class="bg-red-500 px-4 py-2 rounded text-white mr-4">Back</a>

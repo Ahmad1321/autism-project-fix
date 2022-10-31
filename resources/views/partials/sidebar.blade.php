@@ -49,5 +49,11 @@
                     <span>Hasil dan Kesimpulan</span></a>
             </li>
 
+            <li class="nav-item {{ request()->is('admin/final') || request()->is('admin/final') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.keseluruhan.index') }}">
+                    <i class="fas fa-cogs"></i>
+                    <span>Data Hasil</span></a>
+            </li>
+
 
         </ul>

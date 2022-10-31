@@ -13,24 +13,14 @@ use Illuminate\Support\Facades\DB;
 
 class FinalResultController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(): View
     {
       $final = DB::table('finalresult')->join('data_users', 'finalresult.id_user', '=', 'data_users.id')->get();
-      
-
       return view('admin.final.index', compact('final'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
